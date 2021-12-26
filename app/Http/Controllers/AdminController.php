@@ -55,7 +55,7 @@ class AdminController extends Controller
         }
 
         
-        $items = DB::table('items')->join('grouping', 'items.group', '=', 'grouping.id');
+        $items = DB::table('items')->join('grouping', 'items.group', '=', 'grouping.id')->select('items.*', 'group_name');
 
         if(isset($group)){
             $items = $items->where('grouping.id', '=', $group);
